@@ -1,2 +1,2 @@
 # www.parliament.go.ke-scrapper
-Scrapper program than gets mp and senate bio information from www.parliament.go.ke
+Scrapper program that fetches mps and senators bio information from www.parliament.go.ke

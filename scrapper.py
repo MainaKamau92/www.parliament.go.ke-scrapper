@@ -5,11 +5,8 @@ from bs4 import BeautifulSoup
 BASE_URL = 'http://www.parliament.go.ke'
 
 
-# page = requests.get("http://www.parliament.go.ke/the-national-assembly/mps")
-
-
 def get_all_mps(pg):
-    MPS_URL = f'http://www.parliament.go.ke/the-national-assembly/mps?field_name_value=%20&field_parliament_value=2017&page={pg}'
+    MPS_URL = f'{BASE_URL}/the-national-assembly/mps?field_name_value=%20&field_parliament_value=2017&page={pg}'
     PAGE = requests.get(MPS_URL)
     soup = BeautifulSoup(PAGE.content, 'html.parser')
     results = soup.find_all('tr', class_='mp')
@@ -37,7 +34,7 @@ def get_better_image(url):
 
 
 def get_all_senators(pg):
-    SENATORS_URL = f'http://www.parliament.go.ke/the-senate/senators?title=&field_parliament_value=2017&page={pg}'
+    SENATORS_URL = f'{BASE_URL}/the-senate/senators?title=&field_parliament_value=2017&page={pg}'
     PAGE = requests.get(SENATORS_URL)
     soup = BeautifulSoup(PAGE.content, 'html.parser')
     results = soup.find_all('tr')
@@ -62,3 +59,5 @@ def get_all_senators(pg):
 if __name__ == '__main__':
     for i in range(0, 7):
         get_all_senators(i)
+    for i in range(0, 37):
+        get_all_mps(i)

@@ -11,7 +11,7 @@ import glob
 import pandas as pd
 
 # set working directory
-os.chdir("/home/maina/OpenSource/Photon/www.parliament.go.ke/")
+os.chdir(os.getenv("ROOT_DIR"))
 
 # find all csv files in the folder
 # use glob pattern matching -> extension = 'csv'
